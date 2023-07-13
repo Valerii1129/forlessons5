@@ -1,6 +1,6 @@
 package lesson12.homeWork;
 
-public class alishevLesson2 {
+public class AlishevLesson2 {
     public static void main(String[] args) {
         int myInt = 473;
         short myShort = 3268;
