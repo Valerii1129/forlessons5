@@ -2,11 +2,13 @@ package lesson8;
 
 public class Main {
     public static void main(String[] args) {
-        Student student1 = new Student("Iphone", "Vasya", 16);
+        Phone phone = new Phone("Iphone", 14);
+        Student student1 = new Student("Vasya", 16, phone);
         try {
             Student student2 = (Student) student1.clone();
 
-            student1.setName("Alex");
+            phone.setModel("Xiaomi");
+            phone.setVersion("11");
 
             System.out.println(student1);
             System.out.println(student2);

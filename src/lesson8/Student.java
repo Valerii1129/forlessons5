@@ -1,23 +1,14 @@
 package lesson8;
 
 public class Student implements Cloneable {
-    private String phone;
     private String name;
     private int age;
+    private Phone phone;
 
-    public Student(String phone, String name, int age) {
-        this.phone = phone;
+    public Student(String name, int age, Phone phone) {
         this.name = name;
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "phone='" + phone + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        this.phone = phone;
     }
 
     public void setName(String name) {
@@ -25,7 +16,16 @@ public class Student implements Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", phone=" + phone +
+                '}';
+    }
+
+    @Override
+    protected Student clone() throws CloneNotSupportedException {
+        return new Student(name, age, phone.clone());
     }
 }
