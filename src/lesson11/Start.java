@@ -7,15 +7,14 @@ import hillel.json1.model.animal.Animal;
 
 public class Start {
     public static void main(String[] args) {
+
         final Animal dog = new Animal("sharik", "2009.02.12", 14, false, "buldog");
 
-        final AnimalSerializer<JsonMapper> animalSerializer = new AnimalSerializer<>(new JsonMapper());
-        animalSerializer.serialize(dog);
-
-        final AnimalSerializer<XmlMapper> animalSerializer2 = new AnimalSerializer<>(new XmlMapper());
+        final hillel.json1.service.AnimalForAllTypeSerializer<JsonMapper> animalSerializer1 = new hillel.json1.service.AnimalForAllTypeSerializer<>(new JsonMapper());
+        animalSerializer1.serialize(dog);
+        final hillel.json1.service.AnimalForAllTypeSerializer<YAMLMapper> animalSerializer2 = new hillel.json1.service.AnimalForAllTypeSerializer<>(new YAMLMapper());
         animalSerializer2.serialize(dog);
-
-        final AnimalSerializer<YAMLMapper> animalSerializer3 = new AnimalSerializer<>(new YAMLMapper());
+        final hillel.json1.service.AnimalForAllTypeSerializer<XmlMapper> animalSerializer3 = new hillel.json1.service.AnimalForAllTypeSerializer<>(new XmlMapper());
         animalSerializer3.serialize(dog);
     }
 }
